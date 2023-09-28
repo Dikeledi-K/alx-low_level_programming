@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdint.h>
 
 /**
  * get_endianness - Checks the endianness of the machine.
@@ -7,11 +8,16 @@
  */
 int get_endianness(void)
 {
-unsigned int num = 1;
-char *byte_ptr = (char *)&num;
+uint32_t num = 1;
+uint8_t *byte_ptr = (uint8_t *)&num;
 /* If the least significant byte is 1, it's little endian */
 if (*byte_ptr == 1)
-return 1;  /* Little Endian */
-else
-return 0;  /* Big Endian */
+printf("Little Endian\n");
 }
+else
+{
+printf("Big Endian\n");
+}
+(return)0;
+}
+
